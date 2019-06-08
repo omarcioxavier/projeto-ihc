@@ -37,7 +37,6 @@ namespace colorcom.Controllers.Item
             catch (Exception)
             {
             }
-            //return RedirectToAction("Index", "LogItem");
         }
 
         protected override void Dispose(bool disposing)

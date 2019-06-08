@@ -88,7 +88,7 @@ namespace colorcom.Controllers.Item
                 itemExistente.it_ca_cod = item.it_ca_cod;
                 itemExistente.it_um_cod = item.it_um_cod;
 
-                SaveLog(item);
+                SaveLog(item, "Editar");
 
             }
 
@@ -109,19 +109,21 @@ namespace colorcom.Controllers.Item
         public ActionResult AtivarInativarItem(int id)
         {
             var item = _context.itens.Single(i => i.it_cod == id);
-
+            var status = "";
             if (item.it_status)
             {
                 item.it_status = false;
+                status = "Inativo";
             }
             else
             {
                 item.it_status = true;
+                status = "Ativo";
             }
 
             try
             {
-                SaveLog(item);
+                SaveLog(item, "Editar Status " + status);
                 _context.SaveChanges();
             }
             catch (Exception)
@@ -136,23 +138,32 @@ namespace colorcom.Controllers.Item
         public ActionResult DeleteConfirmed(int id)
         {
             item item = db.itens.Find(id);
-            db.itens.Remove(item);
-            db.SaveChanges();
+            try
+            {
+                db.itens.Remove(item);
+                db.SaveChanges();
+                SaveLog(item, "Deletar");
+            }
+            catch (Exception)
+            {
+
+            }
             return RedirectToAction("Index");
         }
 
-        private void SaveLog(item item)
+        private void SaveLog(item item, string tipo)
         {
             var log = new logItem()
             {
                 li_dataHora = DateTime.Now,
                 li_preco_novo = item.it_preco_venda,
-                li_tipo = "Edição",
-                li_descricao = $"Alteração do produto { item.it_titulo }. EAN { item.it_ean }",
+                li_tipo = tipo,
+                li_descricao = $"{tipo} do produto { item.it_titulo }. EAN { item.it_ean }",
                 li_it_cod = item.it_cod
             };
             logController.Save(log);
         }
+
 
         protected override void Dispose(bool disposing)
         {
