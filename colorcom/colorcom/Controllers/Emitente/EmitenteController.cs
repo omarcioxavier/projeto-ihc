@@ -137,5 +137,13 @@ namespace colorcom.Controllers.Emitente
             }).ToList(), JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetEstados()
+        {
+            return Json(db.estados.Select(e => new
+            {
+                Codigo = e.es_cod,
+                Nome = e.es_nome
+            }).ToList(), JsonRequestBehavior.AllowGet);
+        }
     }
 }
