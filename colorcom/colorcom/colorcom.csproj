@@ -159,6 +159,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Emitente\emitente.cs" />
+    <Compile Include="Models\Emitente\EnumTipoEmitente.cs" />
     <Compile Include="Models\Emitente\tipoEmitente.cs" />
     <Compile Include="Models\Estoque\movimentoEstoque.cs" />
     <Compile Include="Models\Item\categoria.cs" />
@@ -569,8 +570,9 @@
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Usuario\UsuarioForm.cshtml" />
     <Content Include="Views\Emitente\EmitenteForm.cshtml" />
-    <Content Include="Views\Emitente\Index.cshtml" />
+    <Content Include="Views\Emitente\IndexFisica.cshtml" />
     <Content Include="Views\LogItem\Index.cshtml" />
+    <Content Include="Views\Emitente\IndexJuridica.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

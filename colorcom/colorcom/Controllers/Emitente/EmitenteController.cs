@@ -18,10 +18,17 @@ namespace colorcom.Controllers.Emitente
 
         private colorcomContext _context;
 
-        // GET: Emitentes
-        public ActionResult Index()
+        // GET: Emitentes Pessoas Fisica
+        public ActionResult IndexFisica()
         {
-            var emitentes = _context.emitentes.ToList();
+            var emitentes = _context.emitentes.Where(e => e.em_te_cod == 1).ToList();
+            return View(emitentes);
+        }
+
+        // GET: Emitentes Pessoas Juridica
+        public ActionResult IndexJuridica()
+        {
+            var emitentes = _context.emitentes.Where(e => e.em_te_cod == 2).ToList();
             return View(emitentes);
         }
 
@@ -35,8 +42,10 @@ namespace colorcom.Controllers.Emitente
         // New: Emitente
         public ActionResult New()
         {
+            var tiposEmitente = _context.tiposEmitente.ToList();
             var viewModel = new EmitenteFormViewModel()
             {
+                tiposEmitentes = tiposEmitente,
                 emitente = new emitente()
             };
             return View("EmitenteForm", viewModel);
