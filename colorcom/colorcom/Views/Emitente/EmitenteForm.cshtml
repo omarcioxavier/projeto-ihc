@@ -51,21 +51,8 @@
                                                 @Html.EditorFor(model => model.emitente.em_email, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteEmail", @maxlength = "100" } })
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
-                                            <label>Status</label>
-                                            <div>
-                                                @Html.CheckBoxFor(model => model.emitente.em_status, htmlAttributes: new { @id = "SwitchStatus", @onclick = "SetStatusLabel()" })
-                                                <label id="lblStatus"></label>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                            <div class="form-group">
-                                                <label>Endereço</label>
-                                                @Html.EditorFor(model => model.emitente.em_endereco, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteEndereco", @maxlength = "100" } })
-                                            </div>
-                                        </div>
                                         <div class="col-sm-2">
                                             <div class="form-group">
                                                 <label>Telefone<b class="red">*</b></label>
@@ -77,6 +64,33 @@
                                             <div class="form-group">
                                                 <label>Celular</label>
                                                 @Html.EditorFor(model => model.emitente.em_celular, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteCelular", @maxlength = "14" } })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label>Status</label>
+                                            <div>
+                                                @Html.CheckBoxFor(model => model.emitente.em_status, htmlAttributes: new { @id = "SwitchStatus", @onclick = "SetStatusLabel()" })
+                                                <label id="lblStatus"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Endereço</label>
+                                                @Html.EditorFor(model => model.emitente.em_endereco, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteEndereco", @maxlength = "100" } })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Estado</label>
+                                                <select class="form-control-sm form-control col-12" name="estado" id="DropDownEstado"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Cidade</label>
+                                                @Html.DropDownListFor(model => model.emitente.em_ci_cod, new SelectList(Model.cidades, "ci_cod", "ci_nome"), "Cidade", new { @class = "form-control-sm form-control col-12", @id = "DropDownCidade" })
                                             </div>
                                         </div>
                                     </div>

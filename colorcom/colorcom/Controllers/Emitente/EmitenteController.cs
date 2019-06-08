@@ -43,9 +43,11 @@ namespace colorcom.Controllers.Emitente
         public ActionResult New()
         {
             var tiposEmitente = _context.tiposEmitente.ToList();
+            var cidades = _context.cidades.ToList();
             var viewModel = new EmitenteFormViewModel()
             {
                 tiposEmitentes = tiposEmitente,
+                cidades = cidades,
                 emitente = new emitente()
             };
             return View("EmitenteForm", viewModel);
@@ -125,5 +127,15 @@ namespace colorcom.Controllers.Emitente
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult GetCidadesByEstadoID(int estadoId)
+        {
+            return Json(db.cidades.Where(c => c.ci_es_cod == estadoId).Select(c => new
+            {
+                Codigo = c.ci_cod,
+                Nome = c.ci_nome
+            }).ToList(), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
