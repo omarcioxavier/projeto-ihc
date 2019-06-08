@@ -18,7 +18,7 @@
                                 <th>Editar</th>
                                 <th>Status</th>
                                 <th>Remover</th>
-                                <th>Código</th>
+                                <th class="d-none d-lg-block d-xl-none">Código</th>
                                 <th>Item</th>
                                 <th>Categoria</th>
                                 <th>Descrição</th>
@@ -26,8 +26,8 @@
                                 <th>Estoque</th>
                                 <th>Status</th>
                                 <th>Preço Compra</th>
-                                <th>Un. Medida</th>
-                                <th>EAN</th>
+                                <th class="d-none d-lg-block d-xl-none">Un. Medida</th>
+                                <th class="d-none d-lg-block d-xl-none">EAN</th>
                             </tr>
 
                             @foreach (var item in Model)
@@ -58,7 +58,7 @@
                                             <input type="submit" class="btn  btn-outline-danger btn-sm" value="Excluir" onclick="return confirm('Remover item @item.it_descricao?')" />
                                         }
                                     </td>
-                                    <td>
+                                    <td class="d-none d-lg-block d-xl-none">
                                         @Html.DisplayFor(modelItem => item.it_cod)
                                     </td>
                                     <td>
@@ -89,10 +89,10 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.it_preco_compra, new { @class = "btn btn-default btn-sm" })
                                     </td>
-                                    <td>
+                                    <td class="d-none d-lg-block d-xl-none">
                                         @Html.DisplayFor(modelItem => item.unidadeMedida.um_sigla)
                                     </td>
-                                    <td>
+                                    <td class="d-none d-lg-block d-xl-none">
                                         @Html.DisplayFor(modelItem => item.it_ean)
                                     </td>
                                 </tr>
