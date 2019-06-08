@@ -1,0 +1,43 @@
+﻿@model colorcom.ViewModels.Item.CategoriaFormViewModel
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Produtos > Categorias > <>@Model.title</b></small>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">Os campos marcados com <b class="red">*</b> são obrigatórios.</p>
+                        <hr />
+                        @using (Html.BeginForm("Save", "Categoria", new { id = "CategoriaForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Código</label>
+                                            @Html.EditorFor(model => model.categoria.ca_cod, new { htmlAttributes = new { @class = "form-control form-control-sm col disabled" } })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <label>Descrição<b class="red">*</b></label>
+                                            @Html.EditorFor(model => model.categoria.ca_descricao, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtCategoriaDescricao", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                                @Html.ActionLink("Voltar", "Index", "Categoria", new { @class = "btn btn-secondary btn-sm" })
+                                @Html.HiddenFor(model => model.categoria.ca_cod, new { @id = "ca_cod" })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

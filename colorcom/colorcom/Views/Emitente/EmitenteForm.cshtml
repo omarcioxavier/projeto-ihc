@@ -1,0 +1,93 @@
+﻿@model colorcom.ViewModels.Item.EmitenteFormViewModel
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Cliente > Clientes > <b>@Model.title</b></small>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">Os campos marcados com <b class="red">*</b> são obrigatórios.</p>
+                        <hr />
+                        @using (Html.BeginForm("Save", "Item", new { id = "EmitenteForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Nome<b class="red">*</b></label>
+                                            @Html.EditorFor(model => model.emitente.em_nome, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteNome", @maxlength = "100" } })
+                                            <span class="invalid-feedback">O Nome deve ser preenchido</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label>Nome Fantasia</label>
+                                            @Html.EditorFor(model => model.emitente.em_nomeFantasia, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteNomeFantasia", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Documento<b class="red">*</b></label>
+                                            @Html.EditorFor(model => model.emitente.em_documento, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteDocumento", @maxlength = "18" } })
+                                            <span class="invalid-feedback">O Documento deve ser preenchido</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Endereço</label>
+                                            @Html.EditorFor(model => model.emitente.em_endereco, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteEndereco", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Telefone<b class="red">*</b></label>
+                                            @Html.EditorFor(model => model.emitente.em_telefone, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteTelefone", @maxlength = "14" } })
+                                            <span class="invalid-feedback">O Preco de Venda deve ser preenchido</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Celular</label>
+                                            @Html.EditorFor(model => model.emitente.em_celular, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteCelular", @maxlength = "14" } })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            @Html.EditorFor(model => model.emitente.em_email, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteEmail", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Em Estoque</label>
+                                            @Html.CheckBoxFor(model => model.emitente.em_status, htmlAttributes: new { @id = "SwitchStatus" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Inscrição</label>
+                                            @Html.EditorFor(model => model.emitente.em_inscricaoEstadual, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitentenscricaoEstadual", @maxlength = "20" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                                @Html.ActionLink("Voltar", "Index", "Emitente", new { @class = "btn btn-secondary btn-sm" })
+                            </div>
+                            @Html.HiddenFor(model => model.emitente.em_cod, new { @id = "em_cod" })
+                            @Html.HiddenFor(model => model.emitente.em_ci_cod, new { @id = "em_ci_cod" })
+                            @Html.HiddenFor(model => model.emitente.em_te_cod, new { @id = "em_te_cod" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

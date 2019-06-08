@@ -1,0 +1,49 @@
+﻿@model IEnumerable<colorcom.Models.Item.categoria>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Produtos > <b>Categorias</b></small>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            @Html.ActionLink("Nova Categoria", "New", "Categoria", null, new { @class = "btn btn-secondary btn-sm" })
+                        </p>
+                        <table class="table table-striped table-bordered table-sm data-table">
+                            <tr>
+                                <th>Editar</th>
+                                <th>Remover</th>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                            </tr>
+
+                            @foreach (var categoria in Model)
+                            {
+                                <tr>
+                                    <td class="fit-column">
+                                        @using (Html.BeginForm("Edit", "Categoria", new { id = categoria.ca_cod }))
+                                        {
+                                            <input type="submit" class="btn btn-primary btn-sm ml-2" value="Editar" />
+                                        }
+                                    </td>
+                                    <td class="fit-column">
+                                        @using (Html.BeginForm("Delete", "Categoria", new { id = categoria.ca_cod }))
+                                        {
+                                            <input type="submit" class="btn  btn-outline-danger btn-sm" value="Excluir" onclick="return confirm(' Remover categoria @categoria.ca_descricao? ')" />
+                                        }
+                                    </td>
+                                    <td>@Html.DisplayFor(modelItem => categoria.ca_cod)</td>
+                                    <td>@Html.DisplayFor(modelItem => categoria.ca_descricao)</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/assets/custom-data-table.js"></script>

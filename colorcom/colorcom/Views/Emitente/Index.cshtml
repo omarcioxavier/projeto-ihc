@@ -1,0 +1,44 @@
+﻿@model IEnumerable<colorcom.Models.Emitente.emitente>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Cliente > <b>Clientes</b></small>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            @Html.ActionLink("Novo Cliente", "New", "Emitente", null, new { @class = "btn btn-secondary btn-sm" })
+                        </p>
+                        <table class="table table-striped table-bordered table-sm data-table">
+                            <tr>
+                                <th>Ações</th>
+                                <th>Código</th>
+                            </tr>
+                            @foreach (var emitente in Model)
+                            {
+                                <tr>
+                                    <td class="fit-column">
+                                        @Html.ActionLink("Editar", "Edit", "Item", new { id = emitente.em_cod }, new { @class = "btn btn-primary btn-sm" })
+                                        @if (emitente.em_status == true)
+                                        {
+                                            @Html.ActionLink("Inativar", "AtivarInativar", "Emitente", new { id = emitente.em_cod }, new { @class = "btn btn-outline-warning btn-sm" })
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink("Inativar", "AtivarInativar", "Emitente", new { id = emitente.em_cod }, new { @class = "btn btn-outline-success btn-sm" })
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => emitente.em_cod)
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

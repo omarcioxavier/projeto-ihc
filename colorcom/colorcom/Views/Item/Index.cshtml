@@ -1,0 +1,112 @@
+﻿@model IEnumerable<colorcom.Models.Item.item>
+
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Produtos > <b>Itens</b></small>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            @Html.ActionLink("Novo Item", "New", "Item", null, new { @class = "btn btn-secondary btn-sm" })
+                        </p>
+                        <table class="table table-striped table-bordered table-sm data-table">
+                            <tr>
+                                <th>Editar</th>
+                                <th>Status</th>
+                                <th>Remover</th>
+                                <th>Código</th>
+                                <th>Item</th>
+                                <th>Categoria</th>
+                                <th>Descrição</th>
+                                <th>Preço Venda</th>
+                                <th>Estoque</th>
+                                <th>Status</th>
+                                <th>Preço Compra</th>
+                                <th>Un. Medida</th>
+                                <th>EAN</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fit-column">
+                                        @Html.ActionLink("Editar", "Edit", "Item", new { id = item.it_cod }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                    <td class="fit-column">
+                                        @if (item.it_status == true)
+                                        {
+                                            using (Html.BeginForm("AtivarInativar", "Item", new { id = item.it_cod }))
+                                            {
+                                                <input type="submit" class="btn btn-outline-warning btn-sm" value="Inativar" onclick="return confirm('Inativar item @item.it_descricao?')" />
+                                            }
+                                        }
+                                        else
+                                        {
+                                            using (Html.BeginForm("AtivarInativar", "Item", new { id = item.it_cod }))
+                                            {
+                                                <input type="submit" class="btn btn-outline-success btn-sm" value="Ativar" onclick="return confirm('Ativar item @item.it_descricao?')" />
+                                            }
+                                        }
+                                    </td>
+                                    <td class="fit-column">
+                                        @using (Html.BeginForm("Delete", "Item", new { id = item.it_cod }))
+                                        {
+                                            <input type="submit" class="btn  btn-outline-danger btn-sm" value="Excluir" onclick="return confirm('Remover item @item.it_descricao?')" />
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_cod)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_titulo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.categoria.ca_descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_preco_venda)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_quantidade)
+                                    </td>
+                                    <td>
+                                        @if (item.it_status == true)
+                                        {
+                                            <span class="badge badge-success">Ativo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-warning">Inativo</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_preco_compra, new { @class = "btn btn-default btn-sm" })
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.unidadeMedida.um_sigla)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_ean)
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+<script src="~/Scripts/assets/custom-data-table.js"></script>

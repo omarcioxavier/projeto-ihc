@@ -1,0 +1,40 @@
+﻿@model IEnumerable<colorcom.Models.Item.logItem>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Histórico de Alterações > <b>Itens</b></small>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped table-bordered table-sm data-table">
+                            <tr>
+                                <th>Código</th>
+                                <th>Preço</th>
+                                <th>Data Alteração</th>
+                                <th>Item Ref.</th>
+                                <th>Tipo</th>
+                                <th>Descrição</th>
+                            </tr>
+
+                            @foreach (var log in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => log.li_cod)</td>
+                                    <td>@Html.DisplayFor(modelItem => log.li_preco_novo)</td>
+                                    <td>@Html.DisplayFor(modelItem => log.li_dataHora)</td>
+                                    <td>@Html.DisplayFor(modelItem => log.item.it_descricao)</td>
+                                    <td>@Html.DisplayFor(modelItem => log.li_tipo)</td>
+                                    <td>@Html.DisplayFor(modelItem => log.li_descricao)</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/assets/custom-data-table.js"></script>

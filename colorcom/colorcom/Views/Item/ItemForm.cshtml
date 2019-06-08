@@ -1,0 +1,123 @@
+﻿@model colorcom.ViewModels.Item.ItemFormViewModel
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Produtos > Itens > <b>@Model.title</b></small>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">Os campos marcados com <b class="red">*</b> são obrigatórios.</p>
+                        <hr />
+                        @using (Html.BeginForm("Save", "Item", new { id = "ItemForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Código</label>
+                                            @Html.EditorFor(model => model.item.it_cod, new { htmlAttributes = new { @class = "form-control form-control-sm col disabled" } })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Título<b class="red">*</b></label>
+                                            @Html.EditorFor(model => model.item.it_titulo, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemTitulo", @maxlength = "100" } })
+                                            <span class="invalid-feedback">O Título deve ser preenchido</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Descrição</label>
+                                            @Html.EditorFor(model => model.item.it_descricao, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemDescricao", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Cóodigo EAN<b class="red">*</b></label>
+                                            @Html.EditorFor(model => model.item.it_ean, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemEan", @maxlength = "100" } })
+                                            <span class="invalid-feedback">O Código EAN deve ser preenchido</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Preço de Compra</label>
+                                            @Html.EditorFor(model => model.item.it_preco_compra, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemPrecoCompra", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Preço de Venda<b class="red">*</b></label>
+                                            @Html.EditorFor(model => model.item.it_preco_venda, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemPrecoVenda", @maxlength = "100" } })
+                                            <span class="invalid-feedback">O Preco de Venda deve ser preenchido</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Qtd. Mínima</label>
+                                            @Html.EditorFor(model => model.item.it_min, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemQtdMin", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="TxtItemQtdMax">Qtd. Máxima</label>
+                                            @Html.EditorFor(model => model.item.it_max, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemQtdMax", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Em Estoque</label>
+                                            @Html.EditorFor(model => model.item.it_quantidade, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemQtd", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Categoria</label>
+                                            @Html.DropDownListFor(model => model.item.it_ca_cod, new SelectList(Model.categorias, "ca_cod", "ca_descricao"), "Categoria", new { @class = "form-control-sm form-control col-12", @id = "DropDownCategoria" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Unidade de Medida</label>
+                                            @Html.DropDownListFor(model => model.item.it_um_cod, new SelectList(Model.unidadesMedida, "um_cod", "um_descricao"), "Unidade de Medida", new { @class = "form-control-sm form-control col-12", @id = "DropDownUnMedida" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label>Status</label>
+                                        <div>
+                                            @Html.CheckBoxFor(model => model.item.it_status, htmlAttributes: new { @id = "SwitchStatus", @onclick = "SetStatusLabel()" })
+                                            <label id="lblStatus"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                                @Html.ActionLink("Voltar", "Index", "Item", new { @class = "btn btn-secondary btn-sm" })
+                                @Html.HiddenFor(model => model.item.it_cod, new { @id = "it_cod" })
+                                @Html.HiddenFor(model => model.item.it_ca_cod, new { @id = "it_ca_cod" })
+                                @Html.HiddenFor(model => model.item.it_um_cod, new { @id = "it_um_cod" })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
