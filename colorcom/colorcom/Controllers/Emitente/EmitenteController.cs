@@ -64,6 +64,8 @@ namespace colorcom.Controllers.Emitente
             }
             var viewModel = new EmitenteFormViewModel
             {
+                tiposEmitentes = _context.tiposEmitente.ToList(),
+                estados = _context.estados.ToList(),
                 emitente = emitente
             };
 
@@ -163,9 +165,10 @@ namespace colorcom.Controllers.Emitente
             }).ToList(), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetEstados()
+        public ActionResult GetEstadoDaCidade(int cidadeId)
         {
-            return Json(db.estados.Select(e => new
+            var estado = db.cidades.Where(c => c.ci_cod == cidadeId).Single();
+            return Json(db.estados.Where(e => e.es_cod == estado.ci_es_cod).Select(e => new
             {
                 Codigo = e.es_cod,
                 Nome = e.es_nome
