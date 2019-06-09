@@ -9,6 +9,9 @@
         ExibirComponentesJuridica();
         ShowContent();
     }
+    try {
+        SetMask();
+    } catch (err) { }
 }
 
 var ExibirComponentesFisica = () => {
@@ -23,6 +26,10 @@ var ExibirComponentesFisica = () => {
     lblNome.innerHTML = "Nome Completo";
     lblDocumento.innerHTML = "CPF";
 
+    const inputDoc = document.getElementById("TxtEmitenteDocumento");
+    inputDoc.classList.remove("cnpj");
+    inputDoc.classList.add("cpf");
+
     LimparCamposJuridica();
 }
 
@@ -36,6 +43,10 @@ var ExibirComponentesJuridica = () => {
     var lblDocumento = document.getElementById("documentoCliente");
     lblNome.innerHTML = "Razão Social";
     lblDocumento.innerHTML = "CNPJ";
+
+    const inputDoc = document.getElementById("TxtEmitenteDocumento");
+    inputDoc.classList.remove("cpf");
+    inputDoc.classList.add("cnpj");
 }
 
 var ShowContent = () => {

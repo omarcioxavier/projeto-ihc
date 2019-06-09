@@ -10,5 +10,11 @@
     "inputFiles": [
       "Content/style.css"
     ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.mask.min.js",
+    "inputFiles": [
+      "Scripts/jquery.mask.js"
+    ]
   }
 ]

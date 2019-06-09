@@ -50,14 +50,14 @@
                                     <div class="col-sm-2">
                                         <div class="form-group">
                                             <label>Preço de Compra</label>
-                                            @Html.EditorFor(model => model.item.it_preco_compra, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemPrecoCompra", @maxlength = "100" } })
+                                            @Html.EditorFor(model => model.item.it_preco_compra, new { htmlAttributes = new { @class = "form-control form-control-sm col float", @id = "TxtItemPrecoCompra", @maxlength = "100" } })
                                         </div>
                                     </div>
 
                                     <div class="col-sm-2">
                                         <div class="form-group">
                                             <label>Preço de Venda<b class="red">*</b></label>
-                                            @Html.EditorFor(model => model.item.it_preco_venda, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtItemPrecoVenda", @maxlength = "100" } })
+                                            @Html.EditorFor(model => model.item.it_preco_venda, new { htmlAttributes = new { @class = "form-control form-control-sm col float", @id = "TxtItemPrecoVenda", @maxlength = "100" } })
                                             <span class="invalid-feedback">O Preco de Venda deve ser preenchido</span>
                                         </div>
                                     </div>
@@ -120,3 +120,4 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/Geral/Item/ItemForm.js"></script>
