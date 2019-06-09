@@ -15,16 +15,17 @@
                             @Html.AntiForgeryToken()
                             <div class="form-horizontal">
                                 <div class="row">
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         <div class="form-group">
                                             <label>Código</label>
                                             @Html.EditorFor(model => model.emitente.em_cod, new { htmlAttributes = new { @class = "form-control form-control-sm col disabled" } })
                                         </div>
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Tipo Cliente<b class="red">*</b></label>
                                             @Html.DropDownListFor(model => model.emitente.em_te_cod, new SelectList(Model.tiposEmitentes, "te_cod", "te_descricao"), "Selecione", new { @id = "ddlTipoCliente", @class = "form-control-sm form-control col-12", @onchange = "ExibirComponentes()" })
+                                            <small class="form-text text-muted">Selecione um tipo para visualizar o formulário.</small>
                                         </div>
                                     </div>
                                 </div>
@@ -56,14 +57,14 @@
                                         <div class="col-sm-2">
                                             <div class="form-group">
                                                 <label>Telefone<b class="red">*</b></label>
-                                                @Html.EditorFor(model => model.emitente.em_telefone, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteTelefone", @maxlength = "14" } })
+                                                @Html.EditorFor(model => model.emitente.em_telefone, new { htmlAttributes = new { @class = "form-control form-control-sm col telefone", @id = "TxtEmitenteTelefone", @maxlength = "14" } })
                                                 <span class="invalid-feedback">O Preco de Venda deve ser preenchido</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
                                             <div class="form-group">
                                                 <label>Celular</label>
-                                                @Html.EditorFor(model => model.emitente.em_celular, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteCelular", @maxlength = "14" } })
+                                                @Html.EditorFor(model => model.emitente.em_celular, new { htmlAttributes = new { @class = "form-control form-control-sm col celular", @id = "TxtEmitenteCelular", @maxlength = "14" } })
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
@@ -84,13 +85,13 @@
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Estado</label>
-                                                <select class="form-control-sm form-control col-12" name="estado" id="DropDownEstado"></select>
+                                                @Html.DropDownListFor(x => x.estadoSelecionado, new SelectList(Model.estados, "es_cod", "es_nome"), "Estado", new { @class = "form-control-sm form-control col-12", @id = "DropDownEstado", @onchange = "cidadeCascata()" })
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Cidade</label>
-                                                @Html.DropDownListFor(model => model.emitente.em_ci_cod, new SelectList(Model.cidades, "ci_cod", "ci_nome"), "Cidade", new { @class = "form-control-sm form-control col-12", @id = "DropDownCidade" })
+                                                <select id="DropDownCidade" name="SelectCidade" class="form-control-sm form-control col-12"></select>
                                             </div>
                                         </div>
                                     </div>
@@ -131,3 +132,9 @@
     </div>
 </div>
 <script src="~/Scripts/Geral/Emitente/EmitenteForm.js"></script>
+<script src="~/Scripts/Geral/Emitente/cidadesCascata.js"></script>
+<script>
+    var EmitenteUrl = {
+        CidadeCascata : '@Url.Action("GetCidadesByEstadoID", "Emitente")',
+        }
+</script>

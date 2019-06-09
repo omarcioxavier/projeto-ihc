@@ -33,14 +33,14 @@
                                     <td class="fit-column">
                                         @if (emitente.em_status == true)
                                         {
-                                            using (Html.BeginForm("AtivarInativar", "Emitente", new { id = emitente.em_cod }))
+                                            using (Html.BeginForm("AtivarInativar", "Emitente", new { id = emitente.em_cod, tipoEmitente = emitente.em_te_cod }))
                                             {
                                                 <input type="submit" class="btn btn-outline-warning btn-sm" value="Inativar" onclick="return confirm('Inativar Cliente @emitente.em_nome?')" />
                                             }
                                         }
                                         else
                                         {
-                                            using (Html.BeginForm("AtivarInativar", "Emitente", new { id = emitente.em_cod }))
+                                            using (Html.BeginForm("AtivarInativar", "Emitente", new { id = emitente.em_cod, tipoEmitente = emitente.em_te_cod }))
                                             {
                                                 <input type="submit" class="btn btn-outline-success btn-sm" value="Ativar" onclick="return confirm('Ativar Cliente @emitente.em_nome?')" />
                                             }

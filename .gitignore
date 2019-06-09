@@ -5,3 +5,5 @@
 /colorcom/colorcom/bin/colorcom.dll.config
 /colorcom/colorcom/obj/Debug/colorcom.csproj.CoreCompileInputs.cache
 /colorcom/colorcom/obj/Debug/colorcom.csprojAssemblyReference.cache
+*.cache
+*.resources

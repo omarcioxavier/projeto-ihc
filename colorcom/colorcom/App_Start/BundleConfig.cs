@@ -21,7 +21,13 @@ namespace colorcom
                 "~/Scripts/bootbox.min.js",
                 "~/Scripts/bootbox.locales.min.js",
                 "~/Scripts/bootstrap.js",
-                "~/Scripts/bootstrap.min.js"));
+                "~/Scripts/bootstrap.min.js",
+                "~/Scripts/inputmask/inputmask.js",
+                "~/Scripts/inputmask/jquery.inputmask.js",
+                "~/Scripts/inputmask/inputmask.extensions.js",
+                "~/Scripts/inputmask/inputmask.date.extensions.js",
+                "~/Scripts/inputmask/inputmask.numeric.extensions.js",
+                "~/Scripts/jquery.mask.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
@@ -38,16 +44,6 @@ namespace colorcom
                 "~/Content/DataTables/buttons.bootstrap4.min.css",
                 "~/Content/themify-icons/css/themify-icons.css",
                 "~/Content/style.css"));
-
-            //bundles.Add(new StyleBundle("~/Scripts/DataTables").Include(
-            //    "~/Scripts/DataTables/dataTables.buttons.min.js",
-            //    "~/Scripts/DataTables/jquery.dataTables.js",
-            //    "~/Scripts/DataTables/buttons.bootstrap4.min.js",
-            //    "~/Scripts/DataTables/buttons.html5.min.js",
-            //    "~/Scripts/DataTables/buttons.print.min.js",
-            //    "~/Scripts/DataTables/buttons.colVis.min.js",
-            //    "~/Scripts/DataTables/datatables-init.js",
-            //    "~/Scripts/DataTables/dataTables.bootstrap4.min.js"));
         }
     }
 }

@@ -20,17 +20,17 @@ namespace colorcom.Models.Emitente
         [MaxLength(100)]
         public string em_nomeFantasia { get; set; }
 
-        [MaxLength(18)]
+        [MaxLength(20)]
         [Index(IsUnique = true)]
         public string em_documento { get; set; }
 
         [MaxLength(100)]
         public string em_endereco { get; set; }
 
-        [MaxLength(14)]
+        [MaxLength(20)]
         public string em_telefone { get; set; }
 
-        [MaxLength(14)]
+        [MaxLength(20)]
         public string em_celular { get; set; }
 
         [MaxLength(100)]

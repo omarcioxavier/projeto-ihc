@@ -43,11 +43,11 @@ namespace colorcom.Controllers.Emitente
         public ActionResult New()
         {
             var tiposEmitente = _context.tiposEmitente.ToList();
-            var cidades = _context.cidades.ToList();
+            var estados = _context.estados.ToList();
             var viewModel = new EmitenteFormViewModel()
             {
                 tiposEmitentes = tiposEmitente,
-                cidades = cidades,
+                estados = estados,
                 emitente = new emitente()
             };
             return View("EmitenteForm", viewModel);
@@ -106,7 +106,8 @@ namespace colorcom.Controllers.Emitente
                 return RedirectToAction("New", "Emitente");
             }
 
-            return RedirectToAction("Index", "Emitente");
+            var index = emitente.em_te_cod == 1 ? "IndexFisica" : "IndexJuridica";
+            return RedirectToAction(index, "Emitente");
         }
 
         // Delete: Emitente/id
@@ -126,6 +127,31 @@ namespace colorcom.Controllers.Emitente
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost, ActionName("AtivarInativar")]
+        public ActionResult AtivarInativarEmitente(int id, int tipoEmitente)
+        {
+            var emitente = _context.emitentes.Single(e => e.em_cod == id);
+            if (emitente.em_status)
+            {
+                emitente.em_status = false;
+            }
+            else
+            {
+                emitente.em_status = true;
+            }
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "Emitente");
+            }
+            var index = tipoEmitente == 1 ? "IndexFisica" : "IndexJuridica";
+            return RedirectToAction(index, "Emitente");
         }
 
         public ActionResult GetCidadesByEstadoID(int estadoId)
