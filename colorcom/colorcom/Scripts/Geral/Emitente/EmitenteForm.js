@@ -1,4 +1,7 @@
-﻿var ExibirComponentes = () => {
+﻿$(document).ready(function () {
+    ExibirComponentes();
+});
+var ExibirComponentes = () => {
     const index = document.getElementById("ddlTipoCliente").value;
     if (index == 0) {
         HideContent();
