@@ -7,10 +7,10 @@ namespace colorcom.ViewModels.Item
 {
     public class EmitenteFormViewModel
     {
-        public IEnumerable<tipoEmitente> tiposEmitentes { get; set; }
-        public IEnumerable<estado> estados { get; set; }
-        public int estadoSelecionado { get; set; }
         public emitente emitente { get; set; }
+        public IEnumerable<tipoEmitente> tiposEmitentes { get; set; }
+        public IEnumerable<cidade> cidades { get; set; }
+        public IEnumerable<estado> estados { get; set; }
 
         public string title
         {

@@ -44,15 +44,18 @@ namespace colorcom.Models.Emitente
 
         public int em_ci_cod { get; set; }
 
+        public int em_es_cod { get; set; }
+
         public int em_te_cod { get; set; }
 
-        [ForeignKey("em_ci_cod ")]
+        [ForeignKey("em_ci_cod")]
         public virtual cidade cidade { get; set; }
+
+        [ForeignKey("em_es_cod")]
+        public virtual estado estado { get; set; }
 
         [ForeignKey("em_te_cod ")]
         public virtual tipoEmitente tipoEmitente { get; set; }
-
-        public virtual ICollection<pedido> pedidos { get; set; }
 
         public virtual ICollection<entradaNF> entradasNF { get; set; }
     }

@@ -1,5 +1,4 @@
-﻿using colorcom.Models.Estoque;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -44,7 +43,5 @@ namespace colorcom.Models.Item
         public virtual unidadeMedida unidadeMedida { get; set; }
 
         public virtual ICollection<logItem> logsItem { get; set; }
-
-        public virtual ICollection<movimentoEstoque> movimentosEstoque { get; set; }
     }
 }

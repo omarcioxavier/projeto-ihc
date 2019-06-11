@@ -145,7 +145,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Emitente\EmitenteController.cs" />
-    <Compile Include="Controllers\Estoque\MovimentoEstoqueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Item\CategoriaController.cs" />
     <Compile Include="Controllers\Item\ItemController.cs" />
@@ -161,7 +160,6 @@
     <Compile Include="Models\Emitente\emitente.cs" />
     <Compile Include="Models\Emitente\EnumTipoEmitente.cs" />
     <Compile Include="Models\Emitente\tipoEmitente.cs" />
-    <Compile Include="Models\Estoque\movimentoEstoque.cs" />
     <Compile Include="Models\Item\categoria.cs" />
     <Compile Include="Models\Item\item.cs" />
     <Compile Include="Models\Item\logItem.cs" />
@@ -170,8 +168,7 @@
     <Compile Include="Models\Localizacao\estado.cs" />
     <Compile Include="Models\NotaFiscal\entradaNF.cs" />
     <Compile Include="Models\NotaFiscal\saidaNF.cs" />
-    <Compile Include="Models\Pedido\itensPedido.cs" />
-    <Compile Include="Models\Pedido\pedido.cs" />
+    <Compile Include="Models\Pedido\itemPedido.cs" />
     <Compile Include="Models\Usuario\tipoUsuario.cs" />
     <Compile Include="Models\Usuario\usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

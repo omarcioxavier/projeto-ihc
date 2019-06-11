@@ -4,18 +4,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace colorcom.Models.Pedidos
 {
-    [Table("itensPedido")]
-    public class itensPedido
+    [Table("itemPedido")]
+    public class itemPedido
     {
         [Key]
         public int ip_cod { get; set; }
 
         public float ip_valor { get; set; }
 
-        [Required]
         public string ip_descricao { get; set; }
 
-        [Required]
         public int ip_quantidade { get; set; }
 
         public int ip_it_cod { get; set; }
