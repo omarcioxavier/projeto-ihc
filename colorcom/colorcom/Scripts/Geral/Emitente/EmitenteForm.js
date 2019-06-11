@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+    if ($('#em_cod').val() !== "0") {
+        cidadeCascata(1);
+    }
     ExibirComponentes();
 });
 var ExibirComponentes = () => {

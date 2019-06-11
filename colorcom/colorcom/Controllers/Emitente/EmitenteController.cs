@@ -44,10 +44,12 @@ namespace colorcom.Controllers.Emitente
         {
             var tiposEmitente = _context.tiposEmitente.ToList();
             var estados = _context.estados.ToList();
+            var cidades = _context.cidades.ToList();
             var viewModel = new EmitenteFormViewModel()
             {
                 tiposEmitentes = tiposEmitente,
                 estados = estados,
+                cidades = cidades,
                 emitente = new emitente()
             };
             return View("EmitenteForm", viewModel);
@@ -66,6 +68,7 @@ namespace colorcom.Controllers.Emitente
             {
                 tiposEmitentes = _context.tiposEmitente.ToList(),
                 estados = _context.estados.ToList(),
+                cidades = _context.cidades.ToList(),
                 emitente = emitente
             };
 

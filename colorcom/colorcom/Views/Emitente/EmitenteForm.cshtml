@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <p class="lead">Os campos marcados com <b class="red">*</b> são obrigatórios.</p>
                         <hr />
-                        @using (Html.BeginForm("Save", "Item", new { id = "EmitenteForm" }))
+                        @using (Html.BeginForm("Save", "Emitente", new { id = "EmitenteForm" }))
                         {
                             @Html.AntiForgeryToken()
                             <div class="form-horizontal">
@@ -18,7 +18,7 @@
                                     <div class="col-sm-1">
                                         <div class="form-group">
                                             <label>Código</label>
-                                            @Html.EditorFor(model => model.emitente.em_cod, new { htmlAttributes = new { @class = "form-control form-control-sm col disabled" } })
+                                            @Html.EditorFor(model => model.emitente.em_cod, new { htmlAttributes = new { @class = "form-control form-control-sm col disabled", @id = "em_cod" } })
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
@@ -85,7 +85,7 @@
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Estado</label>
-                                                @Html.DropDownListFor(model => model.emitente.em_es_cod, new SelectList(Model.estados, "es_cod", "es_nome"), "Estado", new { @class = "form-control-sm form-control col-12", @id = "DropDownEstado", @onchange = "cidadeCascata()" })
+                                                @Html.DropDownListFor(model => model.emitente.em_es_cod, new SelectList(Model.estados, "es_cod", "es_nome"), "Estado", new { @class = "form-control-sm form-control col-12", @id = "DropDownEstado", @onchange = "cidadeCascata(0)" })
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -121,11 +121,10 @@
                                     }
                                     else if (Model.emitente.em_cod == 0)
                                     {
-                                        <button type="button" onclick="history.go(-1);" value="Voltar"></button>
+                                        <button type="button" class="btn btn-secondary btn-sm" onclick="history.go(-1);">Voltar</button>
                                     }
                                 </div>
                             </div>
-                            @Html.HiddenFor(model => model.emitente.em_cod, new { @id = "em_cod" })
                             @Html.HiddenFor(model => model.emitente.em_ci_cod, new { @id = "em_ci_cod" })
                             @Html.HiddenFor(model => model.emitente.em_te_cod, new { @id = "em_te_cod" })
                         }

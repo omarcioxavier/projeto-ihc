@@ -1,4 +1,4 @@
-﻿var cidadeCascata = () => {
+﻿var cidadeCascata = (edit) => {
     const ddlEstado = document.getElementById("DropDownEstado");
     var select = $('#DropDownCidade');
     $(select).empty();

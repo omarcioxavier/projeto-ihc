@@ -1,12 +1,12 @@
 USE colorcommercedb;
 
-INSERT INTO categoria (ca_descricao, ca_ca_cod) VALUES
-('Tintas', 1),
-('Tinta Látex', 1),
-('Tinta Acrílica', 1),
-('Tinta Esmalte', 1),
-('Tinta Epóxi', 1),
-('Tinta Especial para textura', 1);
+INSERT INTO categoria (ca_descricao) VALUES
+('Tintas'),
+('Tinta Látex'),
+('Tinta Acrílica'),
+('Tinta Esmalte'),
+('Tinta Epóxi'),
+('Tinta Especial para textura');
 
 INSERT INTO estado (es_nome, es_uf) VALUES
 ('Acre', 'AC'),
