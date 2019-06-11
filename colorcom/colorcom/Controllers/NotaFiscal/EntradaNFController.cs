@@ -44,7 +44,7 @@ namespace colorcom.Controllers.NotaFiscal
         {
             var viewModel = new EntradaNFFormViewModel()
             {
-                entradaNF = new entradaNF()
+                entradaNf = new entradaNF()
             };
             return View("EntradaNFForm", viewModel);
         }
@@ -60,7 +60,7 @@ namespace colorcom.Controllers.NotaFiscal
             }
             var viewModel = new EntradaNFFormViewModel
             {
-                entradaNF = entradaNF
+                entradaNf = entradaNF
             };
 
             return View("EntradaNFForm", viewModel);
@@ -81,28 +81,7 @@ namespace colorcom.Controllers.NotaFiscal
             {
                 return RedirectToAction("New", "EntradaNF");
             }
-
             return RedirectToAction("Index", "EntradaNF");
-        }
-
-        // Inativate: EntradaNF
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Inativar(entradaNF entradaNF)
-        {
-            var entradaNFExistente = _context.entradasNF.Single(e => e.en_cod == entradaNF.en_cod);
-
-            entradaNFExistente.en_status = entradaNF.en_status;
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return RedirectToAction("New", "Item");
-            }
-
-            return RedirectToAction("Index", "Item");
         }
     }
 }

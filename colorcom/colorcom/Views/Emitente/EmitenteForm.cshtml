@@ -85,13 +85,13 @@
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Estado</label>
-                                                @Html.DropDownListFor(x => x.estadoSelecionado, new SelectList(Model.estados, "es_cod", "es_nome"), "Estado", new { @class = "form-control-sm form-control col-12", @id = "DropDownEstado", @onchange = "cidadeCascata()" })
+                                                @Html.DropDownListFor(model => model.emitente.em_es_cod, new SelectList(Model.estados, "es_cod", "es_nome"), "Estado", new { @class = "form-control-sm form-control col-12", @id = "DropDownEstado", @onchange = "cidadeCascata()" })
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Cidade</label>
-                                                <select id="DropDownCidade" name="SelectCidade" class="form-control-sm form-control col-12"></select>
+                                                @Html.DropDownListFor(model => model.emitente.em_ci_cod, new SelectList(Model.cidades, "ci_cod", "ci_nome"), "Cidade", new { @class = "form-control-sm form-control col-12", @id = "DropDownCidade" })
                                             </div>
                                         </div>
                                     </div>
@@ -118,6 +118,10 @@
                                     else if (Model.emitente.em_te_cod == 2)
                                     {
                                         @Html.ActionLink("Voltar", "IndexJuridica", "Emitente", new { @class = "btn btn-secondary btn-sm" })
+                                    }
+                                    else if (Model.emitente.em_cod == 0)
+                                    {
+                                        <button type="button" onclick="history.go(-1);" value="Voltar"></button>
                                     }
                                 </div>
                             </div>

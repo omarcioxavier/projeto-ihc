@@ -26,8 +26,8 @@ namespace colorcom.Models.Usuario
         [ForeignKey("us_tu_cod")]
         public tipoUsuario tipoUsuario { get; set; }
 
-        public virtual ICollection<pedido> pedidos { get; set; }
-
         public virtual ICollection<entradaNF> entradasNF { get; set; }
+
+        public virtual ICollection<saidaNF> saidasNF { get; set; }
     }
 }

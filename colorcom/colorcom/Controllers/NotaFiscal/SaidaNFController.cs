@@ -44,7 +44,7 @@ namespace colorcom.Controllers.NotaFiscal
         {
             var viewModel = new SaidaNFFormViewModel()
             {
-                saidaNF = new saidaNF()
+                saidaNf = new saidaNF()
             };
             return View("SaidaNFForm", viewModel);
         }
@@ -60,7 +60,7 @@ namespace colorcom.Controllers.NotaFiscal
             }
             var viewModel = new SaidaNFFormViewModel
             {
-                saidaNF = saidaNF
+                saidaNf = saidaNF
             };
 
             return View("SaidaNFForm", viewModel);
@@ -83,26 +83,6 @@ namespace colorcom.Controllers.NotaFiscal
             }
 
             return RedirectToAction("Index", "EntradaNF");
-        }
-
-        // Inativate: EntradaNF
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Inativar(saidaNF saidaNF)
-        {
-            var saidaNFExistente = _context.saidasNF.Single(e => e.sn_cod == saidaNF.sn_cod);
-
-            saidaNFExistente.sn_status = saidaNF.sn_status;
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return RedirectToAction("New", "Item");
-            }
-
-            return RedirectToAction("Index", "Item");
         }
     }
 }
