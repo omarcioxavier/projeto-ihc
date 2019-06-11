@@ -13,7 +13,6 @@ namespace colorcom.Models.Usuario
         public int us_cod { get; set; }
 
         [MaxLength(100)]
-        [Index(IsUnique = true)]
         public string us_login { get; set; }
 
         [MaxLength(100)]

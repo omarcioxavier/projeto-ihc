@@ -21,7 +21,6 @@ namespace colorcom.Models.Emitente
         public string em_nomeFantasia { get; set; }
 
         [MaxLength(20)]
-        [Index(IsUnique = true)]
         public string em_documento { get; set; }
 
         [MaxLength(100)]
@@ -39,7 +38,6 @@ namespace colorcom.Models.Emitente
         public bool em_status { get; set; }
 
         [MaxLength(20)]
-        [Index(IsUnique = true)]
         public string em_inscricaoEstadual { get; set; }
 
         public int em_ci_cod { get; set; }

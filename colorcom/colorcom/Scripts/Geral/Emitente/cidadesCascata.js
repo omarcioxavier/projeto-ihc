@@ -1,12 +1,19 @@
 ﻿var cidadeCascata = (edit) => {
     const ddlEstado = document.getElementById("DropDownEstado");
-    var select = $('#DropDownCidade');
-    $(select).empty();
-    $.getJSON(EmitenteUrl.CidadeCascata + "?estadoID=" + ddlEstado.selectedIndex, function (result) {
+    if (edit == 0) {
+        filtrarCidades(ddlEstado.selectedIndex);
+    } else {
+    }
+}
+
+var filtrarCidades = (estadoId) => {
+    var ddlCidade = $('#DropDownCidade');
+    $(ddlCidade).empty();
+    $.getJSON(EmitenteUrl.CidadeCascata + "?estadoID=" + estadoId, function (result) {
         $.each(result, function (i, field) {
             $('<option>', {
                 value: field.Codigo
-            }).html(field.Nome).appendTo(select);
+            }).html(field.Nome).appendTo(ddlCidade);
         });
     });
 }

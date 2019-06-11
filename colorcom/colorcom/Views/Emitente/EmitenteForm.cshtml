@@ -42,7 +42,7 @@
                                         <div class="col-sm-2">
                                             <div class="form-group">
                                                 <label id="documentoCliente"><b class="red">*</b></label>
-                                                @Html.EditorFor(model => model.emitente.em_documento, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteDocumento", @maxlength = "18" } })
+                                                @Html.EditorFor(model => model.emitente.em_documento, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtEmitenteDocumento", @maxlength = "20" } })
                                                 <span class="invalid-feedback">O Documento deve ser preenchido</span>
                                             </div>
                                         </div>
@@ -57,14 +57,14 @@
                                         <div class="col-sm-2">
                                             <div class="form-group">
                                                 <label>Telefone<b class="red">*</b></label>
-                                                @Html.EditorFor(model => model.emitente.em_telefone, new { htmlAttributes = new { @class = "form-control form-control-sm col telefone", @id = "TxtEmitenteTelefone", @maxlength = "14" } })
+                                                @Html.EditorFor(model => model.emitente.em_telefone, new { htmlAttributes = new { @class = "form-control form-control-sm col telefone", @id = "TxtEmitenteTelefone", @maxlength = "20" } })
                                                 <span class="invalid-feedback">O Preco de Venda deve ser preenchido</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
                                             <div class="form-group">
                                                 <label>Celular</label>
-                                                @Html.EditorFor(model => model.emitente.em_celular, new { htmlAttributes = new { @class = "form-control form-control-sm col celular", @id = "TxtEmitenteCelular", @maxlength = "14" } })
+                                                @Html.EditorFor(model => model.emitente.em_celular, new { htmlAttributes = new { @class = "form-control form-control-sm col celular", @id = "TxtEmitenteCelular", @maxlength = "20" } })
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
@@ -125,6 +125,7 @@
                                     }
                                 </div>
                             </div>
+                            @Html.HiddenFor(model => model.emitente.em_cod)
                             @Html.HiddenFor(model => model.emitente.em_ci_cod, new { @id = "em_ci_cod" })
                             @Html.HiddenFor(model => model.emitente.em_te_cod, new { @id = "em_te_cod" })
                         }
