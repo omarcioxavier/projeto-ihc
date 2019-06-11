@@ -17,7 +17,6 @@ namespace colorcom.Models.Item
         public string it_descricao { get; set; }
 
         [MaxLength(100)]
-        [Index(IsUnique = true)]
         public string it_ean { get; set; }
 
         public float it_preco_compra { get; set; }

@@ -100,6 +100,7 @@ namespace colorcom.Controllers.Emitente
                 emitenteExistente.em_inscricaoEstadual = emitente.em_inscricaoEstadual;
 
                 emitenteExistente.em_ci_cod = emitente.em_ci_cod;
+                emitenteExistente.em_es_cod = emitente.em_es_cod;
                 emitenteExistente.em_te_cod = emitente.em_te_cod;
             }
             try

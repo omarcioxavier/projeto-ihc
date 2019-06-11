@@ -160,6 +160,10 @@
     <Compile Include="Migrations\201906110119168_Refatoracao.Designer.cs">
       <DependentUpon>201906110119168_Refatoracao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906110237254_RetirarUI.cs" />
+    <Compile Include="Migrations\201906110237254_RetirarUI.Designer.cs">
+      <DependentUpon>201906110237254_RetirarUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Emitente\emitente.cs" />
     <Compile Include="Models\Emitente\EnumTipoEmitente.cs" />
@@ -601,6 +605,7 @@
     <Content Include="Views\Emitente\IndexFisica.cshtml" />
     <Content Include="Views\LogItem\Index.cshtml" />
     <Content Include="Views\Emitente\IndexJuridica.cshtml" />
+    <Content Include="Views\SaidaNF\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,6 +626,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906110119168_Refatoracao.resx">
       <DependentUpon>201906110119168_Refatoracao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906110237254_RetirarUI.resx">
+      <DependentUpon>201906110237254_RetirarUI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

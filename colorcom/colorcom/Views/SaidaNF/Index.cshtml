@@ -1,7 +1,5 @@
-﻿
-
-<div  class=" container">
-    <div id="Div1"  class="row middle justify-content-center">
+﻿<div class=" container">
+    <div id="Div1" class="row middle justify-content-center">
         <table class="bg printer-ticket">
             <thead>
                 <tr>
@@ -98,7 +96,7 @@
     </div>
 </div>
 <footer class="footer border-top bg-white">
-        <a id="clickbind" class="btn btn-outline-primary btn-sm" href="#">Gerar PDF</a>
+    <a id="clickbind" class="btn btn-outline-primary btn-sm" href="#">Gerar PDF</a>
 </footer>
 @*<script src="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -121,7 +119,7 @@
             generateCanvas(i, doc, deferred);
         }
 
-        $.when.apply($, deferreds).then(function () { 
+        $.when.apply($, deferreds).then(function () {
             doc.save('Test.pdf');
         });
     }
@@ -152,8 +150,9 @@
         bottom: 0;
         width: 100%;
     }
+
     #clickbind {
-        margin-left:37%;
+        margin-left: 37%;
     }
 
     .bg {
