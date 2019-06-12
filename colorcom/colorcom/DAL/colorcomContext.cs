@@ -2,6 +2,7 @@
 using colorcom.Models.Item;
 using colorcom.Models.Localizacao;
 using colorcom.Models.NotaFiscal;
+using colorcom.Models.Pedidos;
 using colorcom.Models.Usuario;
 using System.Data.Entity;
 
@@ -30,6 +31,7 @@ namespace colorcom.DAL
         public DbSet<tipoUsuario> tiposUsuarios { get; set; }
         public DbSet<unidadeMedida> unidadesMedida { get; set; }
         public DbSet<usuario> usuarios { get; set; }
+        public DbSet<itemPedido> itensPedido { get; set; }
 
         public System.Data.Entity.DbSet<colorcom.Models.Item.categoria> categorias { get; set; }
     }

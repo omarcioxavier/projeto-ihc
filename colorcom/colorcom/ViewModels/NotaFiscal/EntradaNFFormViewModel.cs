@@ -5,7 +5,7 @@ using colorcom.Models.Pedidos;
 using colorcom.Models.Usuario;
 using System.Collections.Generic;
 
-namespace colorcom.ViewModels.Item
+namespace colorcom.ViewModels.NotaFiscal
 {
     public class EntradaNFFormViewModel
     {

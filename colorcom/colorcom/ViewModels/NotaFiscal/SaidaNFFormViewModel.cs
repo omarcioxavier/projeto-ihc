@@ -5,7 +5,7 @@ using colorcom.Models.Pedidos;
 using colorcom.Models.Usuario;
 using System.Collections.Generic;
 
-namespace colorcom.ViewModels.Item
+namespace colorcom.ViewModels.NotaFiscal
 {
     public class SaidaNFFormViewModel
     {
@@ -13,7 +13,7 @@ namespace colorcom.ViewModels.Item
         public IEnumerable<estado> estados { get; set; }
         public IEnumerable<cidade> cidades { get; set; }
         public IEnumerable<itemPedido> itensPedido { get; set; }
-        public IEnumerable<emitente> emitente { get; set; }
+        public IEnumerable<emitente> emitentes { get; set; }
         public IEnumerable<usuario> usuarios { get; set; }
 
         public string title

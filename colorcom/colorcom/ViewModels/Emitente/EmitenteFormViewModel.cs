@@ -3,7 +3,7 @@ using colorcom.Models.Localizacao;
 using colorcom.Models.Usuario;
 using System.Collections.Generic;
 
-namespace colorcom.ViewModels.Item
+namespace colorcom.ViewModels.Emitente
 {
     public class EmitenteFormViewModel
     {
