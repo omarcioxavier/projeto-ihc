@@ -17,15 +17,15 @@
                             <tr>
                                 <th>Editar</th>
                                 <th>Status</th>
-                                <th>Remover</th>
                                 <th class="d-none d-lg-block d-xl-none">Código</th>
                                 <th>Item</th>
                                 <th>Categoria</th>
                                 <th>Descrição</th>
                                 <th>Preço Venda</th>
                                 <th>Estoque</th>
-                                <th>Status</th>
                                 <th>Preço Compra</th>
+                                <th>Alt. Status</th>
+                                <th>Remover</th>
                                 <th class="d-none d-lg-block d-xl-none">Un. Medida</th>
                                 <th class="d-none d-lg-block d-xl-none">EAN</th>
                             </tr>
@@ -35,6 +35,34 @@
                                 <tr>
                                     <td class="fit-column">
                                         @Html.ActionLink("Editar", "Edit", "Item", new { id = item.it_cod }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                    <td class="fit-column">
+                                        @if (item.it_status == true)
+                                        {
+                                            <span class="badge badge-success">Ativo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-warning">Inativo</span>
+                                        }
+                                    </td>
+                                    <td class="d-none d-lg-block d-xl-none">
+                                        @Html.DisplayFor(modelItem => item.it_cod)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_titulo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.categoria.ca_descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_preco_venda)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.it_quantidade)
                                     </td>
                                     <td class="fit-column">
                                         @if (item.it_status == true)
@@ -56,34 +84,6 @@
                                         @using (Html.BeginForm("Delete", "Item", new { id = item.it_cod }))
                                         {
                                             <input type="submit" class="btn  btn-outline-danger btn-sm" value="Excluir" onclick="return confirm('Remover item @item.it_descricao?')" />
-                                        }
-                                    </td>
-                                    <td class="d-none d-lg-block d-xl-none">
-                                        @Html.DisplayFor(modelItem => item.it_cod)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.it_titulo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.categoria.ca_descricao)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.it_descricao)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.it_preco_venda)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.it_quantidade)
-                                    </td>
-                                    <td>
-                                        @if (item.it_status == true)
-                                        {
-                                            <span class="badge badge-success">Ativo</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="badge badge-warning">Inativo</span>
                                         }
                                     </td>
                                     <td>

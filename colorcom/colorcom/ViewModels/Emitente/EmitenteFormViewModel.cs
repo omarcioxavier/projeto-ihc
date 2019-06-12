@@ -18,9 +18,9 @@ namespace colorcom.ViewModels.Item
             {
                 if (emitente != null && emitente.em_cod != 0)
                 {
-                    return "Editar Cliente";
+                    return "Editar Emitente";
                 }
-                return "Novo Cliente";
+                return "Novo Emitente";
             }
         }
     }

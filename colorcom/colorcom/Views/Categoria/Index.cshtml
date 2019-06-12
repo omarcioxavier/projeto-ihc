@@ -15,9 +15,9 @@
                         <table class="table table-striped table-bordered table-sm data-table">
                             <tr>
                                 <th>Editar</th>
-                                <th>Remover</th>
                                 <th>Código</th>
                                 <th>Descrição</th>
+                                <th>Remover</th>
                             </tr>
 
                             @foreach (var categoria in Model)
@@ -29,14 +29,14 @@
                                             <input type="submit" class="btn btn-primary btn-sm ml-2" value="Editar" />
                                         }
                                     </td>
+                                    <td>@Html.DisplayFor(modelItem => categoria.ca_cod)</td>
+                                    <td>@Html.DisplayFor(modelItem => categoria.ca_descricao)</td>
                                     <td class="fit-column">
                                         @using (Html.BeginForm("Delete", "Categoria", new { id = categoria.ca_cod }))
                                         {
                                             <input type="submit" class="btn  btn-outline-danger btn-sm" value="Excluir" onclick="return confirm(' Remover categoria @categoria.ca_descricao? ')" />
                                         }
                                     </td>
-                                    <td>@Html.DisplayFor(modelItem => categoria.ca_cod)</td>
-                                    <td>@Html.DisplayFor(modelItem => categoria.ca_descricao)</td>
                                 </tr>
                             }
                         </table>
