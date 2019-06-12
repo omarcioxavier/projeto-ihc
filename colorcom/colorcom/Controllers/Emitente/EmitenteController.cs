@@ -1,5 +1,6 @@
 ﻿using colorcom.DAL;
 using colorcom.Models.Emitente;
+using colorcom.ViewModels.Emitente;
 using colorcom.ViewModels.Item;
 using System;
 using System.Linq;

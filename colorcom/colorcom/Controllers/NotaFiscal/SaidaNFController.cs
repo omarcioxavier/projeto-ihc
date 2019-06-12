@@ -1,6 +1,7 @@
 ﻿using colorcom.DAL;
 using colorcom.Models.NotaFiscal;
 using colorcom.ViewModels.Item;
+using colorcom.ViewModels.NotaFiscal;
 using System;
 using System.Linq;
 using System.Web.Mvc;
@@ -42,9 +43,17 @@ namespace colorcom.Controllers.NotaFiscal
         // Saida: SaidaNF
         public ActionResult New()
         {
+            var usuarios = _context.usuarios.ToList();
+            var estados = _context.estados.ToList();
+            var cidades = _context.cidades.ToList();
+            var emitentes = _context.emitentes.ToList();
+            var itensPedido = _context.itensPedido.ToList();
             var viewModel = new SaidaNFFormViewModel()
             {
-                saidaNf = new saidaNF()
+                estados = estados,
+                cidades = cidades,
+                emitentes = emitentes,
+                saidaNf = new saidaNF(),
             };
             return View("SaidaNFForm", viewModel);
         }

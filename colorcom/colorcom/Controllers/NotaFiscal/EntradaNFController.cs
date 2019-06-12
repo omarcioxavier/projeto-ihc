@@ -1,6 +1,7 @@
 ﻿using colorcom.DAL;
 using colorcom.Models.NotaFiscal;
 using colorcom.ViewModels.Item;
+using colorcom.ViewModels.NotaFiscal;
 using System;
 using System.Linq;
 using System.Web.Mvc;

@@ -1,0 +1,70 @@
+﻿@model colorcom.ViewModels.Pedido.ItemPedidoFormViewModel
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small class="card-title">Pedido > Pedido</small>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">Selecione um item e a quantidade</p>
+                        <hr />
+                        @using (Html.BeginForm("Save", "ItemPedido", new { id = "ItemPedidoForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <div class="form-group">
+                                            <label>Código</label>
+                                            @Html.EditorFor(model => model.itemPedido.ip_cod, new { htmlAttributes = new { @class = "form-control form-control-sm col disabled" } })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="form-group">
+                                            <label>Anotações</label>
+                                            @Html.EditorFor(model => model.itemPedido.ip_descricao, new { htmlAttributes = new { @class = "form-control form-control-sm col", @maxlength = "100" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Item</label>
+                                            @Html.DropDownListFor(model => model.itemPedido.ip_it_cod, new SelectList(Model.itens, "it_cod", "it_titulo"), "Item", new { @class = "form-control-sm form-control col-12", @id = "DropDownItem", @onchange = "obterPreco()" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Quantidade</label>
+                                            @Html.EditorFor(model => model.itemPedido.ip_quantidade, new { htmlAttributes = new { @class = "form-control form-control-sm col", @id = "TxtBoxQuantidade", @Value = "1", @onchange = "calcularValor()", @min = "0", @max = "10" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Valor</label>
+                                            @Html.EditorFor(model => model.itemPedido.ip_valor, new { htmlAttributes = new { @class = "form-control form-control-sm col disabled", @id = "TxtBoxPreco" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="history.go(-1);">Voltar</button>
+                            </div>
+                            @Html.HiddenFor(model => model.itemPedido.ip_cod, new { @id = "idItem" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Geral/ItemPedido/obterPreco.js"></script>
+<script>
+    var ItemPedidoUrl = {
+        itemSelecionado : '@Url.Action("GetPrecoItemById", "ItemPedido")',
+        }
+</script>

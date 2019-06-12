@@ -151,6 +151,7 @@
     <Compile Include="Controllers\Item\LogItemController.cs" />
     <Compile Include="Controllers\NotaFiscal\SaidaNFController.cs" />
     <Compile Include="Controllers\NotaFiscal\EntradaNFController.cs" />
+    <Compile Include="Controllers\Pedido\ItemPedidoController.cs" />
     <Compile Include="Controllers\Usuario\UsuarioController.cs" />
     <Compile Include="DAL\colorcomContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,6 +186,7 @@
     <Compile Include="ViewModels\Item\ItemFormViewModel.cs" />
     <Compile Include="ViewModels\NotaFiscal\SaidaNFFormViewModel.cs" />
     <Compile Include="ViewModels\NotaFiscal\EntradaNFFormViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\ItemPedidoFormViewModel.cs" />
     <Compile Include="ViewModels\Usuario\UsuarioFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -523,6 +525,7 @@
     <Content Include="Scripts\Geral\Emitente\cidadesCascata.js" />
     <Content Include="Scripts\Geral\Emitente\EmitenteForm.js" />
     <Content Include="Scripts\Geral\geral.js" />
+    <Content Include="Scripts\Geral\ItemPedido\obterPreco.js" />
     <Content Include="Scripts\Geral\Item\ItemForm.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\dependencyLibs\inputmask.dependencyLib.jqlite.js" />
@@ -606,6 +609,8 @@
     <Content Include="Views\LogItem\Index.cshtml" />
     <Content Include="Views\Emitente\IndexJuridica.cshtml" />
     <Content Include="Views\SaidaNF\Index.cshtml" />
+    <Content Include="Views\SaidaNF\SaidaNFForm.cshtml" />
+    <Content Include="Views\ItemPedido\ItemPedidoForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

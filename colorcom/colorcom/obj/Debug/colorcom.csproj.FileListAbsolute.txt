@@ -265,8 +265,11 @@ F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\bin\Antlr3.Runtime
 F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\bin\System.Diagnostics.DiagnosticSource.xml
 F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.csprojAssemblyReference.cache
 F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.csproj.CoreCompileInputs.cache
 F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.csproj.CopyComplete
 F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.dll
 F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.pdb
+F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.Migrations.Refatoracao.resources
+F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.Migrations.RetirarUI.resources
+F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.csproj.GenerateResource.cache
+F:\Development\Projects\ASP.NET\projeto-ihc\colorcom\colorcom\obj\Debug\colorcom.csprojAssemblyReference.cache
