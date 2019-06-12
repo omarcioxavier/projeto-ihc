@@ -1,9 +1,6 @@
 ﻿var cidadeCascata = (edit) => {
     const ddlEstado = document.getElementById("DropDownEstado");
-    if (edit == 0) {
-        filtrarCidades(ddlEstado.selectedIndex);
-    } else {
-    }
+    filtrarCidades(ddlEstado.selectedIndex);
 }
 
 var filtrarCidades = (estadoId) => {
